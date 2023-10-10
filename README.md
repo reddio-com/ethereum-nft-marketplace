@@ -3,7 +3,7 @@
 ![This repo provides you a NFT marketplace bootstrap on Ethereum.
 ](header.png)
 
-The technologies used in this workshop are [React](https://reactjs.org/), [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [HardHat](https://hardhat.org/), [Solidity](https://docs.soliditylang.org/en/v0.8.5/), and [Ethers](https://docs.ethers.io/v5/).
+The technologies used in this project are [React](https://reactjs.org/), [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [HardHat](https://hardhat.org/), [Solidity](https://docs.soliditylang.org/en/v0.8.5/), and [Ethers](https://docs.ethers.io/v5/).
 
 ## The flow diagram of the project
 ![diagram
