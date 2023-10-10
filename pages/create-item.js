@@ -34,6 +34,7 @@ export default function Home() {
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
   const router = useRouter()
 
+  // mint NFT and put for sale in the market
   async function createSale(url) {
     const web3Modal = new Web3Modal({
       network: "mainnet",
@@ -44,6 +45,7 @@ export default function Home() {
     const signer = provider.getSigner()
     
     let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
+    // mint the new token
     let transaction = await contract.createToken(url)
     let tx = await transaction.wait()
     let event = tx.events[0]
@@ -55,6 +57,7 @@ export default function Home() {
 
 
     contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+    // places the item for sale
     transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
     
     await transaction.wait()

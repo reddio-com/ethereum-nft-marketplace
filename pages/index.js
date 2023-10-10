@@ -17,10 +17,12 @@ export default function Home() {
   useEffect(() => {
     loadNFTs()
   }, [])
+  // fetch NFTs from the marketplace and render them to the UI
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider()
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
+    // calls the fetchMarketItems function in smart contract and returns all unsold NFT
     const data = await marketContract.fetchMarketItems()
     
     const items = await Promise.all(data.map(async i => {
@@ -40,6 +42,7 @@ export default function Home() {
     setNfts(items)
     setLoaded('loaded') 
   }
+  // allow a user to purchase an NFT
   async function buyNft(nft) {
     const web3Modal = new Web3Modal({
       network: "mainnet",
@@ -54,6 +57,7 @@ export default function Home() {
 
     console.log('price: ', price);
     
+    // allow the user to transfer the amount from wallet to the seller's wallet
     const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
       value: price
     })

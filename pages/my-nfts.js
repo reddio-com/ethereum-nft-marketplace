@@ -14,6 +14,8 @@ import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 export default function Home() {
   const [nfts, setNfts] = useState([])
   const [loaded, setLoaded] = useState('not-loaded')
+
+  // load the NFTs users have purchased
   async function loadNFTs() {
     const web3Modal = new Web3Modal({
       network: "mainnet",
@@ -25,6 +27,7 @@ export default function Home() {
       
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
+    // give users the ability to view the NFTs they have purchased
     const data = await marketContract.fetchMyNFTs()
     
     const items = await Promise.all(data.map(async i => {

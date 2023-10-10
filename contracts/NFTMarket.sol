@@ -7,6 +7,10 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
+// Inheriting from ReentrancyGuard will make the nonReentrant modifier available, 
+// which can be applied to functions to make sure there are 
+// no nested (reentrant) calls to them.
+
 contract NFTMarket is ReentrancyGuard {
   using Counters for Counters.Counter;
   Counters.Counter private _itemIds;
@@ -19,6 +23,7 @@ contract NFTMarket is ReentrancyGuard {
     owner = payable(msg.sender);
   }
 
+// store records of items that we want to make available in the marketplace
   struct MarketItem {
     uint itemId;
     address nftContract;
@@ -27,7 +32,7 @@ contract NFTMarket is ReentrancyGuard {
     address payable owner;
     uint256 price;
   }
-
+// key value pairing between IDs and MarketItems
   mapping(uint256 => MarketItem) private idToMarketItem;
 
   event MarketItemCreated (
@@ -43,6 +48,7 @@ contract NFTMarket is ReentrancyGuard {
     return idToMarketItem[marketItemId];
   }
 
+// transfers an NFT to the contract address of the market, and puts the item for sale
   function createMarketItem(
     address nftContract,
     uint256 tokenId,
@@ -75,6 +81,7 @@ contract NFTMarket is ReentrancyGuard {
     );
   }
 
+// enables the transfer of the NFT as well as ETH between the buyer and seller
   function createMarketSale(
     address nftContract,
     uint256 itemId
@@ -95,6 +102,7 @@ contract NFTMarket is ReentrancyGuard {
     return item;
   }
 
+// returns all market items that are still for sale
   function fetchMarketItems() public view returns (MarketItem[] memory) {
     uint itemCount = _itemIds.current();
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
@@ -113,6 +121,7 @@ contract NFTMarket is ReentrancyGuard {
     return items;
   }
 
+// returns the NFTs that the user has purchased
   function fetchMyNFTs() public view returns (MarketItem[] memory) {
     uint totalItemCount = _itemIds.current();
     uint itemCount = 0;

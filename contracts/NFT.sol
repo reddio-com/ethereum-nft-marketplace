@@ -7,6 +7,15 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
+// The contstructor takes an argument for the marketplaceAddress address, 
+// saving the value and making it available in the smart contract. 
+// This way when someone calls createToken, the contract can allow the 
+// Market contract approval to transfer the token away from the owner to the seller.
+
+// The newItemId value is returned from the function as we will be needing it in 
+// our client application to know the dynamic value of the tokenId that was generated 
+// by the smart contract.
+
 contract NFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
