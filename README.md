@@ -5,6 +5,9 @@
 
 The technologies used in this workshop are [React](https://reactjs.org/), [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [HardHat](https://hardhat.org/), [Solidity](https://docs.soliditylang.org/en/v0.8.5/), and [Ethers](https://docs.ethers.io/v5/).
 
+## The flow diagram of the project
+(diagram.png)
+
 ## Getting Started
 
 First, clone the repo and install the dependencies:
