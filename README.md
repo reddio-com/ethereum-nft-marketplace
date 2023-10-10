@@ -10,7 +10,7 @@ The technologies used in this workshop are [React](https://reactjs.org/), [Next.
 First, clone the repo and install the dependencies:
 
 ```sh
-git clone https://github.com/reddio-com/repositories/ethereum-nft-marketplace.git
+git clone https://github.com/reddio-com/ethereum-nft-marketplace.git
 
 
 yarn
