@@ -15,8 +15,9 @@ First, clone the repo and install the dependencies:
 
 ```sh
 git clone https://github.com/reddio-com/ethereum-nft-marketplace.git
+```
 
-
+```sh
 yarn
 
 ```
