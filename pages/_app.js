@@ -13,29 +13,26 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <nav className="w-full bg-gray-800 shadow">
         <div className="flex items-center p-4 border-b text-center gap-x-4">
-          <Image src={LogoImage} alt="Logo" width="90"
-          height="20" />
+          
+          <Image src={LogoImage} alt="Logo" width="90" height="20" />
           <p className={`text-white origin-left font-medium text-xl`}>NFT Marketplace</p>
-        </div>
-        
-      </nav>
-      <nav className="border-b px-12 py-2">
-        <div className="flex mt-4">
-          <Link href="/">
-            <a className="mr-4 text-blue-500">
-              Home
-            </a>
-          </Link>
-          <Link href="/create-item">
-            <a className="mr-4 text-blue-500">
-              Create NFT
-            </a>
-          </Link>
-          <Link href="/my-nfts">
-            <a className="mr-4 text-blue-500">
-              My NFTSs
-            </a>
-          </Link>
+  
+          <ul className="hidden md:flex">
+            
+            <li className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline">
+              <Link href="/">Home</Link>
+            </li>
+            
+            <li className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline">
+            <Link href="/create-item">Create NFT</Link>
+            </li>
+            
+            
+            <li className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline">
+              <Link href="/my-nfts">My NFTs</Link>
+            </li>
+            
+          </ul>
         </div>
       </nav>
       <Component {...pageProps} />
