@@ -5,8 +5,6 @@ import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
 import web3 from 'web3'
 
-const projectId = process.env.NEXT_PUBLIC_IPFS_PROJECT_ID;
-const projectSecret = process.env.NEXT_PUBLIC_API_KEY_SECRET;
 const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString('base64')}`;
 
 const ipfs = ipfsHttpClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
@@ -23,7 +21,7 @@ const client = ipfsHttpClient({
 const subdomain = 'https://reddio.infura-ipfs.io'
 
 import {
-  nftaddress, nftmarketaddress
+  nftaddress, nftmarketaddress, projectId, projectSecret
 } from '../config'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
