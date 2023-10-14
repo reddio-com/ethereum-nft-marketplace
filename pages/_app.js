@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <Image src={LogoImage} alt="Logo" width="90" height="20" />
           <p className={`text-white origin-left font-medium text-xl`}>NFT Marketplace</p>
   
-          <ul className="hidden md:flex">
+          <ul className="hidden md:flex flex-grow justify-end">
             
             <li className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline">
               <Link href="/">Home</Link>
