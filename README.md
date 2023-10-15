@@ -1,7 +1,7 @@
 # NFT marketplace bootstrap on Ethererum
 
 ![This repo provides you a NFT marketplace bootstrap on Ethereum.
-](header.png)
+](demo.png)
 
 The technologies used in this project are [React](https://reactjs.org/), [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [HardHat](https://hardhat.org/), [Solidity](https://docs.soliditylang.org/en/v0.8.5/), and [Ethers.js](https://docs.ethers.io/v5/).
 
@@ -55,3 +55,16 @@ npm run dev
 # or
 yarn dev
 ```
+
+## Deploy production to Vercel
+
+1. Fork this repo
+2. Log in to vercel.com
+3. Import from your repo
+4. For Build and Output Settings, overide Build Command with
+```
+yarn next build
+``
+4. Set environment variables under your project, include NEXT_PUBLIC_IPFS_PROJECT_ID, NEXT_PUBLIC_API_KEY_SECRET and NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET
+5. Deploy
+
