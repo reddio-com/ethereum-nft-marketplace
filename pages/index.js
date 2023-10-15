@@ -25,11 +25,9 @@ export default function Home() {
     if (isLocal) {
       // Use localhost provider
       provider = new ethers.providers.JsonRpcProvider();
-      console.log('isLocal')
     } else {
       // Use remote testnet provider (e.g., Infura)
       provider = new ethers.providers.JsonRpcProvider(`https://sepolia.infura.io/v3/${infuraSepoliaAPIKey}`);
-      console.log('remote: ', `https://sepolia.infura.io/v3/${infuraSepoliaAPIKey}`)
     }
 
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
