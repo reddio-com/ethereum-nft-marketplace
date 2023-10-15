@@ -64,12 +64,12 @@ Notes: Make sure you choose the right network on your Metamask
 1. Fork this repo
 2. Add Sepolia network to your hardhat.config.js file with the following information,
 ```javascript
-sepolia: {
+    sepolia: {
       url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
       accounts: [SEPOLIA_PRIVATE_KEY]
     }
 ```
-3. Log in to vercel.com
+3. Log in to [Vercel](https://vercel.com/)
 4. Import from your repo
 5. For 'Build and Output Settings', overide 'Build Command' with
 ```bash
