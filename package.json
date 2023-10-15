@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
