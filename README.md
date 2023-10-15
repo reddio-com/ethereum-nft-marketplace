@@ -18,8 +18,11 @@ git clone https://github.com/reddio-com/ethereum-nft-marketplace.git
 ```
 
 ```sh
-yarn
+cd ethereum-nft-marketplace
+```
 
+```sh
+yarn
 ```
 
 Next, run a local Ethereum node:
@@ -34,27 +37,27 @@ Deploy the smart contract to the local node:
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
-Running the above command should print out the addresses where the contract was deployed. Update `config.js` with those values:
+Running the above command should print out the addresses where the contract was deployed. Update `.evn.local` with those values:
 
 ```javascript
-export const nftmarketaddress="your-nft-market-address"
-export const nftaddress="your-nft-address"
+NEXT_PUBLIC_NFTMARKET_ADDRESS="your-nft-market-address"
+NEXT_PUBLIC_NFT_ADDRESS="your-nft-address"
 ```
 
-Create an account at [Infura](https://www.infura.io/), create a project and enable Dedicated Gateways, update the values below in 'config.js' accordingly.
+Create an account at [Infura](https://www.infura.io/), create a project and enable Dedicated Gateways, update the values below in '.evn.local' accordingly.
 
 ```javascript
-export const projectId="your-infura-project-id"
-export const projectSecret="your-infura-project-secret"
+NEXT_PUBLIC_IPFS_PROJECT_ID="your-infura-project-id"
+NEXT_PUBLIC_API_KEY_SECRET="your-infura-project-secret"
 ```
 
 Next, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
+
+Notes: Make sure you choose the right network on your Metamask
 
 ## Deploy production to Vercel
 
@@ -62,9 +65,9 @@ yarn dev
 2. Log in to vercel.com
 3. Import from your repo
 4. For Build and Output Settings, overide Build Command with
-```
+```bash
 yarn next build
-``
+```
 4. Set environment variables under your project, include NEXT_PUBLIC_IPFS_PROJECT_ID, NEXT_PUBLIC_API_KEY_SECRET and NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET
 5. Deploy
 

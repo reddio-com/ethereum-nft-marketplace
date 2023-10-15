@@ -37,10 +37,6 @@ task("accounts", "Prints the list of accounts", async () => {
   networks: {
     hardhat: {
       chainId: 1337
-    },
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [SEPOLIA_PRIVATE_KEY]
     }
   }
 };
