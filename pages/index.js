@@ -4,12 +4,13 @@ import web3 from 'web3'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 
-import {
-  nftaddress, nftmarketaddress
-} from '../config'
-
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+
+const infuraSepoliaAPIKey = process.env.NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET;
+const nftaddress = process.env.NEXT_PUBLIC_NFT_ADDRESS;
+const nftmarketaddress = process.env.NEXT_PUBLIC_NFTMARKET_ADDRESS;
+const isLocal = process.env.NODE_ENV === 'development';
 
 export default function Home() {
   const [nfts, setNfts] = useState([])
@@ -19,7 +20,19 @@ export default function Home() {
   }, [])
   // fetch NFTs from the marketplace and render them to the UI
   async function loadNFTs() {
-    const provider = new ethers.providers.JsonRpcProvider()
+    let provider;
+
+    console.log('infuraSepoliaAPIKey: ', process.env.NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET)
+
+
+    if (isLocal) {
+      // Use localhost provider
+      provider = new ethers.providers.JsonRpcProvider();
+    } else {
+      // Use remote testnet provider (e.g., Infura)
+      provider = new ethers.providers.JsonRpcProvider(`https://sepolia.infura.io/v3/${infuraSepoliaAPIKey}`);
+    }
+
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
     // calls the fetchMarketItems function in smart contract and returns all unsold NFT

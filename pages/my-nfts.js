@@ -4,12 +4,11 @@ import web3 from 'web3'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 
-import {
-  nftmarketaddress, nftaddress
-} from '../config'
-
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+
+const nftaddress = process.env.NEXT_PUBLIC_NFT_ADDRESS;
+const nftmarketaddress = process.env.NEXT_PUBLIC_NFTMARKET_ADDRESS;
 
 export default function Home() {
   const [nfts, setNfts] = useState([])
