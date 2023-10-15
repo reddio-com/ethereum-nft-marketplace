@@ -62,12 +62,19 @@ Notes: Make sure you choose the right network on your Metamask
 ## Deploy production to Vercel
 
 1. Fork this repo
-2. Log in to vercel.com
-3. Import from your repo
-4. For Build and Output Settings, overide Build Command with
+2. Add Sepolia network to your hardhat.config.js file with the following information,
+```javascript
+sepolia: {
+      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [SEPOLIA_PRIVATE_KEY]
+    }
+```
+3. Log in to vercel.com
+4. Import from your repo
+5. For 'Build and Output Settings', overide 'Build Command' with
 ```bash
 yarn next build
 ```
-4. Set environment variables under your project, include NEXT_PUBLIC_IPFS_PROJECT_ID, NEXT_PUBLIC_API_KEY_SECRET and NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET
-5. Deploy
+6. Set environment variables under your project, include NEXT_PUBLIC_IPFS_PROJECT_ID, NEXT_PUBLIC_API_KEY_SECRET and NEXT_PUBLIC_SEPOLIA_API_KEY_SECRET
+7. Deploy
 
