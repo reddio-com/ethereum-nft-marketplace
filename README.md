@@ -21,6 +21,8 @@ git clone https://github.com/reddio-com/ethereum-nft-marketplace.git
 cd ethereum-nft-marketplace
 ```
 
+Update node to the version you have in package.json file.
+
 ```sh
 yarn
 ```
