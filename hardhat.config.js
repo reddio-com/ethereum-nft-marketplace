@@ -2,7 +2,7 @@ require("@nomiclabs/hardhat-waffle");
 
 // Go to https://infura.io, sign up, create a new API key
 // in its dashboard, and replace "KEY" with it
-const INFURA_API_KEY = process.env.NEXT_PUBLIC_SEPOLIA_PRIVATE_KEY;
+const INFURA_API_KEY = process.env.NEXT_PUBLIC_API_KEY_SECRET;
 
 
 // Replace this private key with your Sepolia account private key
