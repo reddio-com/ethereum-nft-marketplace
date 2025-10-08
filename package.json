@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
